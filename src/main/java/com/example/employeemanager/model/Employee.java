@@ -18,12 +18,14 @@ public class Employee implements Serializable {
     private String jobTitle;
     private String phone;
     private String imageUrl;
+    private String xml;
+    private String department;
     @Column(nullable = false, updatable = false)
     private String employeeCode;
 
     public Employee (){}
 
-    public Employee (String name, String email, String jobTitle, String phone, String imageUrl, String employeeCode)
+    public Employee (String name, String email, String jobTitle, String phone, String imageUrl, String employeeCode, String xml, String department)
     {
         this.name = name;
         this.email = email;
@@ -31,6 +33,8 @@ public class Employee implements Serializable {
         this.phone = phone;
         this.imageUrl = imageUrl;
         this.employeeCode = employeeCode;
+        this.xml = xml;
+        this.department=department;
     }
 
     public long getId() {
@@ -45,8 +49,24 @@ public class Employee implements Serializable {
         return email;
     }
 
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getXml() {
+        return xml;
+    }
+
+    public void setXml(String xml) {
+        this.xml = xml;
     }
 
     public String getName() {
@@ -97,7 +117,8 @@ public class Employee implements Serializable {
                 "email = " + email + " \n " +
                 "jobTitle = " + jobTitle + " \n " +
                 "imageUrl = " + imageUrl + " \n " +
-
+                "xml = " + xml + "\n" +
+                "department = "+ department + "\n" +
                 "}";
     }
 }
